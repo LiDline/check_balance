@@ -11,7 +11,7 @@ import { simpleGetQuery } from './func/simpleGetQuery';
 import urlForCheckBalance from './func/urlForCheckBalance';
 import { CoinGeckoResponseSchema } from '../validation/balanceQuerySchema';
 import getTetherTrc20Balance from './func/getTetherTrc20Balance';
-import getBalanceFromBlockcypher from './func/getBalanceFromBlockcypher';
+import getBalanceFromBlockCypher from './func/getBalanceFromBlockCypher';
 
 export default async function checkBalance(
   query: BalanceQuery,
@@ -47,19 +47,19 @@ export default async function checkBalance(
         case 'ethereum':
           return {
             currency: 'ethereum',
-            array: await getBalanceFromBlockcypher(urls, convert.ethereum.usd),
+            array: await getBalanceFromBlockCypher(urls, convert.ethereum.usd),
           };
 
         case 'litecoin':
           return {
             currency: 'litecoin',
-            array: await getBalanceFromBlockcypher(urls, convert.litecoin.usd),
+            array: await getBalanceFromBlockCypher(urls, convert.litecoin.usd),
           };
 
         case 'dash':
           return {
             currency: 'dash',
-            array: await getBalanceFromBlockcypher(urls, convert.dash.usd),
+            array: await getBalanceFromBlockCypher(urls, convert.dash.usd),
           };
       }
     }),

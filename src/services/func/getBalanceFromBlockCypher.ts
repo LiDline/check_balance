@@ -8,7 +8,7 @@ import { ERRORS } from '../../CONST';
 import { BalanceFromBlockcypherResponseSchema } from '../../validation/balanceQuerySchema';
 import { simpleGetQuery } from './simpleGetQuery';
 
-export default async function getBalanceFromBlockcypher(
+export default async function getBalanceFromBlockCypher(
   urls: UrlForCheckBalance[],
   convert: number,
 ): Promise<Balance[]> {
