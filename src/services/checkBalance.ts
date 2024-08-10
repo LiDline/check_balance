@@ -53,7 +53,13 @@ export default async function checkBalance(
         case 'litecoin':
           return {
             currency: 'litecoin',
-            array: await getBalanceFromBlockcypher(urls, convert.ethereum.usd),
+            array: await getBalanceFromBlockcypher(urls, convert.litecoin.usd),
+          };
+
+        case 'dash':
+          return {
+            currency: 'dash',
+            array: await getBalanceFromBlockcypher(urls, convert.dash.usd),
           };
       }
     }),

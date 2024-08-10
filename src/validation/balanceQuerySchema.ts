@@ -5,8 +5,8 @@ import { CRYPTOCURRENCIES } from '../CONST';
 export const BalanceQuerySchema = z
   .array(
     z.object({
-      address: z.array(z.string().min(1)),
       currency: z.enum(CRYPTOCURRENCIES),
+      address: z.array(z.string().min(1)),
     }),
   )
   .default([]);
@@ -17,6 +17,7 @@ export const CoinGeckoResponseSchema = z.object({
   bitcoin: UsdSchema,
   ethereum: UsdSchema,
   litecoin: UsdSchema,
+  dash: UsdSchema,
 });
 
 export const TetherTrc20BalanceResponseSchema = z.object({

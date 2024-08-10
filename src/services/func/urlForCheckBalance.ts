@@ -7,12 +7,16 @@ export default function urlForCheckBalance(
   currency: CryptoKeys,
   address: string,
 ): UrlForCheckBalance {
+  const blockcypherUrl = (value: 'eth' | 'ltc' | 'dash') =>
+    `https://api.blockcypher.com/v1/${value}/main/addrs/${address}/balance`;
+
   const urlObj = {
     bitcoin: 'https://blockchain.info/q/addressbalance/' + address,
-    ethereum: `https://api.blockcypher.com/v1/eth/main/addrs/${address}/balance`,
     tether_trc20:
       `https://apilist.tronscanapi.com/api/account/tokens?address=` + address,
-    litecoin: `https://api.blockcypher.com/v1/ltc/main/addrs/${address}/balance`,
+    ethereum: blockcypherUrl('eth'),
+    litecoin: blockcypherUrl('ltc'),
+    dash: blockcypherUrl('dash'),
   };
 
   return {

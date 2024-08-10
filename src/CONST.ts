@@ -8,6 +8,7 @@ export const CRYPTOCURRENCIES_OBJECT = {
   ethereum: 'ETH',
   tether_trc20: 'USDT TRC20',
   litecoin: 'LTC',
+  dash: 'Dash',
 } as const;
 
 export const CRYPTOCURRENCIES = Object.keys(CRYPTOCURRENCIES_OBJECT) as [
