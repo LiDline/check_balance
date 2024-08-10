@@ -23,6 +23,9 @@ importers:
       koa-router:
         specifier: ^12.0.1
         version: 12.0.1
+      luxon:
+        specifier: ^3.5.0
+        version: 3.5.0
       nodemon:
         specifier: ^3.1.4
         version: 3.1.4
@@ -57,6 +60,9 @@ importers:
       '@types/koa__cors':
         specifier: ^5.0.0
         version: 5.0.0
+      '@types/luxon':
+        specifier: ^3.4.2
+        version: 3.4.2
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -207,6 +213,9 @@ packages:
 
   '@types/koa__cors@5.0.0':
     resolution: {integrity: sha512-LCk/n25Obq5qlernGOK/2LUwa/2YJb2lxHUkkvYFDOpLXlVI6tKcdfCHRBQnOY4LwH6el5WOLs6PD/a8Uzau6g==}
+
+  '@types/luxon@3.4.2':
+    resolution: {integrity: sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA==}
 
   '@types/mime@1.3.5':
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
@@ -879,6 +888,10 @@ packages:
   lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
+
+  luxon@3.5.0:
+    resolution: {integrity: sha512-rh+Zjr6DNfUYR3bPwJEnuwDdqMbxZW7LOQfUN4B54+Cl+0o5zaU9RJ6bcidfDtC1cWCZXQ+nvX8bf6bAji37QQ==}
+    engines: {node: '>=12'}
 
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
@@ -1687,6 +1700,8 @@ snapshots:
     dependencies:
       '@types/koa': 2.15.0
 
+  '@types/luxon@3.4.2': {}
+
   '@types/mime@1.3.5': {}
 
   '@types/ms@0.7.34': {}
@@ -2451,6 +2466,8 @@ snapshots:
     dependencies:
       yallist: 4.0.0
     optional: true
+
+  luxon@3.5.0: {}
 
   make-error@1.3.6: {}
 
