@@ -3,7 +3,7 @@ import type {
   CoinGeckoResponse,
 } from '../interfaces/interfaces.balanceQuerySchema';
 
-import { URL_FOR_CONVERT } from '../CONST';
+import { ERRORS, URL_FOR_CONVERT } from '../CONST';
 import getBitcoinBalance from './func/getBitcoinBalance';
 import { simpleGetQuery } from './func/simpleGetQuery';
 import urlForCheckBalance from './func/urlForCheckBalance';
@@ -17,7 +17,7 @@ export default async function checkBalance(query: BalanceQuery) {
 
   if (!convert) {
     return {
-      error: 'Проблема с конвертацией валют ',
+      error: ERRORS.convertProblem,
     };
   }
 

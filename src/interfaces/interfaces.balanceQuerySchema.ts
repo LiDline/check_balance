@@ -13,3 +13,9 @@ export type CryptoValues = (typeof CRYPTOCURRENCIES_OBJECT)[CryptoKeys];
 export type BalanceQuery = z.infer<typeof BalanceQuerySchema>;
 
 export type CoinGeckoResponse = z.infer<typeof CoinGeckoResponseSchema>;
+
+export interface Balance {
+  error?: string;
+  balance?: number;
+  usdt?: number;
+}
