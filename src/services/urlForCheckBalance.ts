@@ -10,7 +10,7 @@ export default function urlForCheckBalance(
       'https://api.etherscan.io/api?module=account&action=balance&address=' +
       address,
     tether: `https://api.tether.to/v1/${address}/balance/`,
-    xrp: `https://data.ripple.com/v2/accounts/${address}/balances`,
+    litecoin: `https://api.blockcypher.com/v1/ltc/main/addrs/${address}/balance`,
     cardano: `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/total`,
   };
 

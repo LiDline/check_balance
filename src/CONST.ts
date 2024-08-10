@@ -7,7 +7,7 @@ export const CRYPTOCURRENCIES_OBJECT = {
   bitcoin: 'BTC',
   ethereum: 'ETH',
   tether: 'USDT',
-  xrp: 'XRP',
+  litecoin: 'LTC',
   cardano: 'ADA',
 } as const;
 
@@ -18,3 +18,8 @@ export const CRYPTOCURRENCIES = Object.keys(CRYPTOCURRENCIES_OBJECT) as [
 export const ABBREVIATIONS = Object.values(CRYPTOCURRENCIES_OBJECT) as [
   CryptoValues,
 ];
+
+export const URL_FOR_CONVERT =
+  'https://api.coingecko.com/api/v3/simple/price?ids=' +
+  `${CRYPTOCURRENCIES.join(',')}` +
+  '&vs_currencies=usd';
