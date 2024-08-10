@@ -15,7 +15,13 @@ export type BalanceQuery = z.infer<typeof BalanceQuerySchema>;
 export type CoinGeckoResponse = z.infer<typeof CoinGeckoResponseSchema>;
 
 export interface Balance {
+  address: string;
   error?: string;
   balance?: number;
   usdt?: number;
+}
+
+export interface UrlForCheckBalance {
+  address: string;
+  url: string;
 }

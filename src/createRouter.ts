@@ -10,7 +10,7 @@ export default function router() {
   const router: Router = new Router();
 
   router.get(`/check_balance_from_addresses`, async (ctx) => {
-    const query: BalanceQuery = checkSchema(BalanceQuerySchema, ctx.query, ctx);
+    const query: BalanceQuery = checkSchema(BalanceQuerySchema, ctx);
 
     const res = await checkBalance(query);
 

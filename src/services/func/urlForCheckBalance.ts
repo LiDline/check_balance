@@ -1,9 +1,12 @@
-import { CryptoKeys } from '../../interfaces/interfaces.balanceQuerySchema';
+import type {
+  CryptoKeys,
+  UrlForCheckBalance,
+} from '../../interfaces/interfaces.balanceQuerySchema';
 
 export default function urlForCheckBalance(
   currency: CryptoKeys,
   address: string,
-): string {
+): UrlForCheckBalance {
   const urlObj = {
     bitcoin: 'https://blockchain.info/q/addressbalance/' + address,
     ethereum:
@@ -14,5 +17,8 @@ export default function urlForCheckBalance(
     cardano: `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/total`,
   };
 
-  return urlObj[currency];
+  return {
+    address,
+    url: urlObj[currency],
+  };
 }

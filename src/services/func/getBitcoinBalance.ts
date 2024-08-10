@@ -1,28 +1,36 @@
 import { z } from 'zod';
 
-import type { Balance } from '../../interfaces/interfaces.balanceQuerySchema';
+import type {
+  Balance,
+  UrlForCheckBalance,
+} from '../../interfaces/interfaces.balanceQuerySchema';
 
 import { simpleGetQuery } from './simpleGetQuery';
 import { ERRORS } from '../../CONST';
 
 export default async function getBitcoinBalance(
-  urls: string[],
+  urls: UrlForCheckBalance[],
   convert: number,
 ): Promise<Balance[]> {
   const res = await Promise.all(
-    urls.map(async (url): Promise<Balance> => {
+    urls.map(async (obj): Promise<Balance> => {
       const response: number | undefined = await simpleGetQuery(
-        url,
+        obj.url,
         z.number(),
       );
 
-      if (!response) {
+      if (typeof response != 'number') {
         return {
+          address: obj.address,
           error: ERRORS.balanceProblem,
         };
       }
 
-      return { balance: response, usdt: response * convert };
+      return {
+        address: obj.address,
+        balance: response,
+        usdt: response! * convert,
+      };
     }),
   );
 

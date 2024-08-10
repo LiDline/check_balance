@@ -18,5 +18,5 @@ export const CoinGeckoResponseSchema = z.object({
   cardano: UsdSchema,
   ethereum: UsdSchema,
   litecoin: UsdSchema,
-  tether: UsdSchema,
+  // tether: UsdSchema,
 });
