@@ -15,7 +15,6 @@ const UsdSchema = z.object({ usd: z.number() });
 
 export const CoinGeckoResponseSchema = z.object({
   bitcoin: UsdSchema,
-  cardano: UsdSchema,
   ethereum: UsdSchema,
   litecoin: UsdSchema,
 });
@@ -57,7 +56,7 @@ export const TetherTrc20BalanceResponseSchema = z.object({
   ),
 });
 
-export const EthereumBalanceResponseSchema = z.object({
+export const BalanceFromBlockcypherResponseSchema = z.object({
   address: z.string(),
   total_received: z.string().or(z.number()),
   total_sent: z.string().or(z.number()),

@@ -1,21 +1,21 @@
 import type {
   Balance,
-  EthereumBalanceResponse,
+  BalanceFromBlockcypherResponse,
   UrlForCheckBalance,
 } from '../../interfaces/interfaces.balanceQuerySchema';
 
 import { ERRORS } from '../../CONST';
-import { EthereumBalanceResponseSchema } from '../../validation/balanceQuerySchema';
+import { BalanceFromBlockcypherResponseSchema } from '../../validation/balanceQuerySchema';
 import { simpleGetQuery } from './simpleGetQuery';
 
-export default async function getEthereumBalance(
+export default async function getBalanceFromBlockcypher(
   urls: UrlForCheckBalance[],
   convert: number,
 ): Promise<Balance[]> {
   const res = await Promise.all(
     urls.map(async (obj): Promise<Balance> => {
-      const response: EthereumBalanceResponse | undefined =
-        await simpleGetQuery(obj.url, EthereumBalanceResponseSchema);
+      const response: BalanceFromBlockcypherResponse | undefined =
+        await simpleGetQuery(obj.url, BalanceFromBlockcypherResponseSchema);
 
       if (!response) {
         return {

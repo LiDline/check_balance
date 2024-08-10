@@ -2,12 +2,12 @@ import { z } from 'zod';
 
 import { CRYPTOCURRENCIES_OBJECT } from '../CONST';
 import {
+  BalanceFromBlockcypherResponseSchema,
   BalanceQuerySchema,
   BalanceSchema,
   CheckBalanceResponseSchema,
   CheckBalanceSchema,
   CoinGeckoResponseSchema,
-  EthereumBalanceResponseSchema,
   TetherTrc20BalanceResponseSchema,
 } from '../validation/balanceQuerySchema';
 
@@ -26,8 +26,8 @@ export interface UrlForCheckBalance {
   url: string;
 }
 
-export type EthereumBalanceResponse = z.infer<
-  typeof EthereumBalanceResponseSchema
+export type BalanceFromBlockcypherResponse = z.infer<
+  typeof BalanceFromBlockcypherResponseSchema
 >;
 
 export type CheckBalance = z.infer<typeof CheckBalanceSchema>;
