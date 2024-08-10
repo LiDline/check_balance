@@ -4,6 +4,7 @@ import { CRYPTOCURRENCIES_OBJECT } from '../CONST';
 import {
   BalanceQuerySchema,
   CoinGeckoResponseSchema,
+  TetherTrc20BalanceResponseSchema,
 } from '../validation/balanceQuerySchema';
 
 export type CryptoKeys = keyof typeof CRYPTOCURRENCIES_OBJECT;
@@ -25,3 +26,7 @@ export interface UrlForCheckBalance {
   address: string;
   url: string;
 }
+
+export type TetherTrc20BalanceResponse = z.infer<
+  typeof TetherTrc20BalanceResponseSchema
+>;

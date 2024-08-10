@@ -6,7 +6,7 @@ import {
 export const CRYPTOCURRENCIES_OBJECT = {
   bitcoin: 'BTC',
   ethereum: 'ETH',
-  tether_trc20: 'USDT',
+  tether_trc20: 'USDT TRC20',
   litecoin: 'LTC',
   cardano: 'ADA',
 } as const;
