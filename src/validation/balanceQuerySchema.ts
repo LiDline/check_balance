@@ -18,7 +18,6 @@ export const CoinGeckoResponseSchema = z.object({
   cardano: UsdSchema,
   ethereum: UsdSchema,
   litecoin: UsdSchema,
-  // tether: UsdSchema,
 });
 
 export const TetherTrc20BalanceResponseSchema = z.object({

@@ -13,7 +13,7 @@ export default function urlForCheckBalance(
       'https://api.etherscan.io/api?module=account&action=balance&address=' +
       address,
     tether_trc20:
-      `https://apilist.tronscan.org/api/account/tokens?address=` + address,
+      `https://apilist.tronscanapi.com/api/account/tokens?address=` + address,
     litecoin: `https://api.blockcypher.com/v1/ltc/main/addrs/${address}/balance`,
     cardano: `https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}/total`,
   };

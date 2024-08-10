@@ -1,18 +1,19 @@
-import { ERRORS } from '../../CONST';
 import type {
   Balance,
   TetherTrc20BalanceResponse,
   UrlForCheckBalance,
 } from '../../interfaces/interfaces.balanceQuerySchema';
 
+import { ERRORS } from '../../CONST';
+
 import { TetherTrc20BalanceResponseSchema } from '../../validation/balanceQuerySchema';
 import { simpleGetQuery } from './simpleGetQuery';
 
 export default async function getTetherTrc20Balance(
   urls: UrlForCheckBalance[],
-): Promise<Balance[]> {
+) {
   const res = await Promise.all(
-    urls.map(async (obj): Promise<Balance> => {
+    urls.map(async (obj) => {
       const response: TetherTrc20BalanceResponse | undefined =
         await simpleGetQuery(obj.url, TetherTrc20BalanceResponseSchema);
 
