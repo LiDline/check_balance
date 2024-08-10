@@ -24,8 +24,8 @@ export const TetherTrc20BalanceResponseSchema = z.object({
   total: z.number(),
   data: z.array(
     z.object({
-      amount: z.string(),
-      quantity: z.string(),
+      amount: z.string().or(z.number()),
+      quantity: z.string().or(z.number()),
       tokenId: z.string(),
       level: z.string(),
       tokenPriceInUsd: z.number(),
@@ -56,3 +56,20 @@ export const TetherTrc20BalanceResponseSchema = z.object({
     }),
   ),
 });
+
+export const BalanceSchema = z.object({
+  address: z.string(),
+  error: z.string().optional(),
+  balance: z.number().optional(),
+  usdt: z.number().optional(),
+});
+
+export const CheckBalanceSchema = z.object({
+  currency: z.enum(CRYPTOCURRENCIES),
+  array: z.array(BalanceSchema),
+});
+
+export const CheckBalanceResponseSchema = z
+  .array(CheckBalanceSchema)
+  .default([])
+  .or(z.object({ error: z.string() }));

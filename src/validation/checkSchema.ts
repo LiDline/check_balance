@@ -3,12 +3,10 @@ import { ParameterizedContext } from 'koa';
 
 export default function checkSchema(
   schema: ZodSchema,
+  data: any,
   ctx: ParameterizedContext,
 ) {
   try {
-    const decodedString = decodeURIComponent(ctx.query.data as string);
-    const data = JSON.parse(decodedString);
-
     const res = schema.parse(data);
 
     return res;

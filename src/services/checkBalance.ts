@@ -1,5 +1,7 @@
 import type {
   BalanceQuery,
+  CheckBalance,
+  CheckBalanceResponse,
   CoinGeckoResponse,
 } from '../interfaces/interfaces.balanceQuerySchema';
 
@@ -10,7 +12,9 @@ import urlForCheckBalance from './func/urlForCheckBalance';
 import { CoinGeckoResponseSchema } from '../validation/balanceQuerySchema';
 import getTetherTrc20Balance from './func/getTetherTrc20Balance';
 
-export default async function checkBalance(query: BalanceQuery) {
+export default async function checkBalance(
+  query: BalanceQuery,
+): Promise<CheckBalanceResponse> {
   const convert: CoinGeckoResponse = await simpleGetQuery(
     URL_FOR_CONVERT,
     CoinGeckoResponseSchema,
@@ -23,18 +27,51 @@ export default async function checkBalance(query: BalanceQuery) {
   }
 
   const res = Promise.all(
-    query.map(async (q) => {
+    query.map(async (q): Promise<CheckBalance> => {
       const urls = q.address.map((a) => urlForCheckBalance(q.currency, a));
 
       switch (q.currency) {
         case 'bitcoin':
-          return await getBitcoinBalance(urls, convert.bitcoin.usd);
+          return {
+            currency: 'bitcoin',
+            array: await getBitcoinBalance(urls, convert.bitcoin.usd),
+          };
 
         case 'tether_trc20':
-          return await getTetherTrc20Balance(urls);
+          return {
+            currency: 'tether_trc20',
+            array: await getTetherTrc20Balance(urls),
+          };
 
-        default:
-          break;
+        case 'cardano':
+          return {
+            currency: 'cardano',
+            array: [
+              {
+                address: '',
+              },
+            ],
+          };
+
+        case 'ethereum':
+          return {
+            currency: 'ethereum',
+            array: [
+              {
+                address: '',
+              },
+            ],
+          };
+
+        case 'litecoin':
+          return {
+            currency: 'litecoin',
+            array: [
+              {
+                address: '',
+              },
+            ],
+          };
       }
     }),
   );
