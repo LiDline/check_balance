@@ -11,7 +11,7 @@ import { simpleGetQuery } from './simpleGetQuery';
 
 export default async function getTetherTrc20Balance(
   urls: UrlForCheckBalance[],
-) {
+): Promise<Balance[]> {
   const res = await Promise.all(
     urls.map(async (obj) => {
       const response: TetherTrc20BalanceResponse | undefined =

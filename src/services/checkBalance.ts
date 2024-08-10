@@ -11,6 +11,7 @@ import { simpleGetQuery } from './func/simpleGetQuery';
 import urlForCheckBalance from './func/urlForCheckBalance';
 import { CoinGeckoResponseSchema } from '../validation/balanceQuerySchema';
 import getTetherTrc20Balance from './func/getTetherTrc20Balance';
+import getEthereumBalance from './func/getEthereumBalance';
 
 export default async function checkBalance(
   query: BalanceQuery,
@@ -56,11 +57,7 @@ export default async function checkBalance(
         case 'ethereum':
           return {
             currency: 'ethereum',
-            array: [
-              {
-                address: '',
-              },
-            ],
+            array: await getEthereumBalance(urls, convert.ethereum.usd),
           };
 
         case 'litecoin':

@@ -57,6 +57,18 @@ export const TetherTrc20BalanceResponseSchema = z.object({
   ),
 });
 
+export const EthereumBalanceResponseSchema = z.object({
+  address: z.string(),
+  total_received: z.string().or(z.number()),
+  total_sent: z.string().or(z.number()),
+  balance: z.string().or(z.number()),
+  unconfirmed_balance: z.string().or(z.number()),
+  final_balance: z.string().or(z.number()),
+  n_tx: z.string().or(z.number()),
+  unconfirmed_n_tx: z.string().or(z.number()),
+  final_n_tx: z.string().or(z.number()),
+});
+
 export const BalanceSchema = z.object({
   address: z.string(),
   error: z.string().optional(),

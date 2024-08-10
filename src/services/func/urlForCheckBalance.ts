@@ -9,9 +9,7 @@ export default function urlForCheckBalance(
 ): UrlForCheckBalance {
   const urlObj = {
     bitcoin: 'https://blockchain.info/q/addressbalance/' + address,
-    ethereum:
-      'https://api.etherscan.io/api?module=account&action=balance&address=' +
-      address,
+    ethereum: `https://api.blockcypher.com/v1/eth/main/addrs/${address}/balance`,
     tether_trc20:
       `https://apilist.tronscanapi.com/api/account/tokens?address=` + address,
     litecoin: `https://api.blockcypher.com/v1/ltc/main/addrs/${address}/balance`,

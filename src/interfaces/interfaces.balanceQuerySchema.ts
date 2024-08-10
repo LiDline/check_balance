@@ -7,6 +7,7 @@ import {
   CheckBalanceResponseSchema,
   CheckBalanceSchema,
   CoinGeckoResponseSchema,
+  EthereumBalanceResponseSchema,
   TetherTrc20BalanceResponseSchema,
 } from '../validation/balanceQuerySchema';
 
@@ -24,6 +25,10 @@ export interface UrlForCheckBalance {
   address: string;
   url: string;
 }
+
+export type EthereumBalanceResponse = z.infer<
+  typeof EthereumBalanceResponseSchema
+>;
 
 export type CheckBalance = z.infer<typeof CheckBalanceSchema>;
 
