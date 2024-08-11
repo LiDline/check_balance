@@ -6,12 +6,12 @@ import type {
 } from '../interfaces/interfaces.balanceQuerySchema';
 
 import { ERRORS, URL_FOR_CONVERT } from '../CONST';
-import getBitcoinBalance from './func/getBitcoinBalance';
-import { simpleGetQuery } from './func/simpleGetQuery';
-import urlForCheckBalance from './func/urlForCheckBalance';
+import getBitcoinBalance from './checkBalance/getBitcoinBalance';
+import { simpleGetQuery } from './checkBalance/simpleGetQuery';
+import urlForCheckBalance from './checkBalance/urlForCheckBalance';
 import { CoinGeckoResponseSchema } from '../validation/balanceQuerySchema';
-import getTetherTrc20Balance from './func/getTetherTrc20Balance';
-import getBalanceFromBlockCypher from './func/getBalanceFromBlockCypher';
+import getTetherTrc20Balance from './checkBalance/getTetherTrc20Balance';
+import getBalanceFromBlockCypher from './checkBalance/getBalanceFromBlockCypher';
 
 export default async function checkBalance(
   query: BalanceQuery,

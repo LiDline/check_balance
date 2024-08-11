@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { checkFetchError } from './errors/checkFetchError';
-import { errorProcessing } from './errors/errorProcessing';
+import { checkFetchError } from '../generalMethods/checkFetchError';
+import { errorProcessing } from '../generalMethods/errorProcessing';
 
 export async function simpleGetQuery(
   url: string,

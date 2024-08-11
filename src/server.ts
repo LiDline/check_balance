@@ -2,6 +2,7 @@ import Koa from 'koa';
 import CORS from '@koa/cors';
 import dotenv from 'dotenv';
 import KoaJSON from 'koa-json';
+import bodyParser from 'koa-bodyparser';
 
 import createRouter from './createRouter';
 import connectDB from './database/connectDB';
@@ -21,6 +22,8 @@ dotenv.config();
  ************************************************/
 
 const app = new Koa();
+
+app.use(bodyParser());
 
 app.use(
   CORS({
