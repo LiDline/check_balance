@@ -37,9 +37,9 @@ export default function router() {
 
     const res = await addAddress(postData);
 
-    // const response = checkSchema(CheckBalanceResponseSchema, res, ctx);
+    const response = checkSchema(CheckBalanceResponseSchema, res, ctx);
 
-    ctx.body = res;
+    ctx.body = response;
   });
 
   return router;

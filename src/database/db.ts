@@ -10,19 +10,17 @@ export const sequelize = new Sequelize(
 export const CurrencyAddress = sequelize.define(
   'CurrencyAddress',
   {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
       primaryKey: true,
+      unique: true,
     },
     currency: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
     // balance: {
     //   type: DataTypes.DECIMAL(18, 8),
     //   allowNull: false,

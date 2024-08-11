@@ -4,7 +4,7 @@ import type { AddAddressRequest } from '../interfaces/interfaces.addAddress';
 export default async function addAddress(postData: AddAddressRequest) {
   await CurrencyAddress.sync({
     alter: true,
-    // force: true
+    // force: true,
   });
 
   const res = await CurrencyAddress.create(postData);
