@@ -16,6 +16,10 @@ import getAvailableCurrencies from './services/getAvailableCurrencies';
 export default function router() {
   const router: Router = new Router();
 
+  router.get(`/healthcheck`, async (ctx) => {
+    ctx.body = 'OK';
+  });
+
   router.get(`/get_available_currencies`, async (ctx) => {
     const res = await getAvailableCurrencies();
 

@@ -1,9 +1,13 @@
+'use client';
+
+import { TableProvider } from '@/components/context/TableProvider';
+
 export default function Home() {
   return (
-    <main>
-      <div>тут будет выбор</div>
+    <TableProvider>
+      {/* <SettingsCard />
 
-      <div>Таблица</div>
-    </main>
+      <Table /> */}
+    </TableProvider>
   );
 }
