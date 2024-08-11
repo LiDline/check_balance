@@ -25,7 +25,9 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
 
   //---------------------------------------------
 
-  const contextValue: TableContextProps = {};
+  const contextValue: TableContextProps = {
+    serverIsOnline,
+  };
 
   return (
     <TableContext.Provider value={contextValue}>

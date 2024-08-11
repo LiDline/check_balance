@@ -10,14 +10,6 @@ import connectDB from './database/connectDB';
 dotenv.config();
 
 /************************************************
- * database
- ************************************************/
-
-(async () => {
-  await connectDB();
-})();
-
-/************************************************
  * setup
  ************************************************/
 
@@ -42,6 +34,17 @@ const router = createRouter();
 
 app.use(router.routes());
 
-app.listen(process.env.SERVER_PORT, () => {
-  console.log(`listening: http://localhost:${process.env.SERVER_PORT}`);
-});
+(async () => {
+  try {
+    await connectDB();
+
+    app.listen(process.env.SERVER_PORT, () => {
+      console.log(
+        `Server is listening on http://localhost:${process.env.SERVER_PORT}`,
+      );
+    });
+  } catch (error) {
+    console.error('Failed to connect to the database:', error);
+    process.exit(1);
+  }
+})();

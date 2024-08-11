@@ -4,4 +4,6 @@ export interface ChildrenProps {
   children: React.ReactNode;
 }
 
-export interface TableContextProps {}
+export interface TableContextProps {
+  serverIsOnline: boolean;
+}
