@@ -5,6 +5,9 @@ dotenv.config();
 
 export const sequelize = new Sequelize(
   process.env.URL_POSTGREESQL ?? 'sqlite::memory:',
+  {
+    logging: process.env.NODE_ENV === 'development' ? true : false,
+  },
 );
 
 export const CurrencyAddress = sequelize.define(

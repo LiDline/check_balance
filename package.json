@@ -2,7 +2,9 @@
   "name": "check_balance",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx nodemon server.js --ext ts"
+    "dev": "NODE_ENV=development npx nodemon server.js --ext ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "author": "LiDline",
   "license": "ISC",
