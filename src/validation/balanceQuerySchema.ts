@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
 import { CRYPTOCURRENCIES } from '../CONST';
+import { AddAddressRequestSchema } from './addAddressSchema';
 
 export const BalanceQuerySchema = z
   .array(
-    z.object({
-      currency: z.enum(CRYPTOCURRENCIES),
+    AddAddressRequestSchema.extend({
       address: z.array(z.string().min(1)),
     }),
   )

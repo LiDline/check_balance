@@ -11,6 +11,8 @@ export default function checkSchema(
 
     return res;
   } catch (err) {
-    ctx.throw(500, JSON.stringify({ error: 'Internal Server Error' }));
+    console.log(err);
+
+    ctx.throw(500, JSON.stringify({ error: 'Validation Error' }));
   }
 }
