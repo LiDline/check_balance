@@ -1,13 +1,13 @@
 import { CurrencyAddress } from '../database/db';
-import type { AddAddressRequest } from '../interfaces/interfaces.addAddress';
+import { syncCurrencyAddress } from '../database/syncModels';
+import type { AddAddress } from '../interfaces/interfaces.addAddress';
 
-export default async function addAddress(postData: AddAddressRequest) {
-  await CurrencyAddress.sync({
-    alter: true,
-    // force: true,
-  });
+export default async function addAddress(
+  postData: AddAddress,
+): Promise<AddAddress> {
+  await syncCurrencyAddress();
 
-  const res = await CurrencyAddress.create(postData);
+  const res: AddAddress = (await CurrencyAddress.create(postData)).dataValues;
 
   return res;
 }

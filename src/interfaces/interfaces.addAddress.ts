@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
-import { AddAddressRequestSchema } from '../validation/addAddressSchema';
+import { AddAddressSchema } from '../validation/addAddressSchema';
 
-export type AddAddressRequest = z.infer<typeof AddAddressRequestSchema>;
+export type AddAddress = z.infer<typeof AddAddressSchema>;
+
+export interface GroupedCurrencies {}

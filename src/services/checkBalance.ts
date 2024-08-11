@@ -29,7 +29,7 @@ export default async function checkBalance(
 
   const res = Promise.all(
     query.map(async (q): Promise<CheckBalance> => {
-      const urls = q.address.map((a) => urlForCheckBalance(q.currency, a));
+      const urls = q.addresses.map((a) => urlForCheckBalance(q.currency, a));
 
       switch (q.currency) {
         case 'bitcoin':
