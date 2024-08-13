@@ -9,6 +9,7 @@ import checkServerStatus from '../func/checkServerStatus';
 import {
   AddAddress,
   BalanceQuery,
+  CheckBalanceResponse,
   CRYPTOCURRENCIES,
   CryptoKeys,
   EndpointValues,
@@ -101,15 +102,69 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     }
   };
 
+  //----------------------Delete address-----------------
+
+  const deleteAddress = async (currency: CryptoKeys, address: string) => {
+    try {
+      await simpleDeleteToServer(`${SERVER_ENDPOINT.deleteAddress}/${address}`);
+
+      setCurrencyWithAddresses((prev) => {
+        if (!prev) {
+          return prev;
+        }
+
+        const withoutCurrency = prev.filter((c) => c.currency != currency);
+        const currentCurrency = prev.filter((c) => c.currency === currency)[0];
+
+        const res: BalanceQuery = [
+          ...withoutCurrency,
+          {
+            ...currentCurrency,
+            addresses: [
+              ...currentCurrency.addresses.filter((a) => a != address),
+            ],
+          },
+        ];
+
+        return res;
+      });
+    } catch (error) {
+      setIsError(true);
+    }
+  };
+
+  //--------------------Check balance-------------------
+
+  const [balance, setBalance] = React.useState<
+    CheckBalanceResponse | undefined
+  >(undefined);
+
+  const checkBalance = async (query: BalanceQuery) => {
+    const queryString = encodeURIComponent(JSON.stringify(query));
+
+    try {
+      const res = await simpleGetToServer(
+        '/check_balance_from_addresses',
+        queryString,
+      );
+
+      setBalance(res);
+    } catch (error) {
+      setIsError(true);
+    }
+  };
+
   //---------------------------------------------------
 
   const contextValue: TableContextProps = {
     serverIsOnline,
     isError,
     currencyWithAddresses,
+    balance,
 
     addAddress,
     deleteCurrency,
+    checkBalance,
   };
 
   return (
