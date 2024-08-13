@@ -16,8 +16,11 @@ export interface TableContextProps {
   isError: boolean;
   currencyWithAddresses: BalanceQuery | undefined;
   balance: CheckBalanceResponse | undefined;
+  currentCurrency: string | undefined;
 
   addAddress: (data: AddAddress) => Promise<void>;
   deleteCurrency: (currency: CryptoKeys) => Promise<void>;
   checkBalance: (query: BalanceQuery) => Promise<void>;
+  setCurrentCurrency: React.Dispatch<React.SetStateAction<string | undefined>>;
+  deleteAddress: (currency: CryptoKeys, address: string) => Promise<void>;
 }

@@ -10,5 +10,5 @@ export default async function simpleGetToServer(
     `${INIT_URL}${endUrl}${params ? `/?${params}` : ''}`,
   );
 
-  return response;
+  return response.data;
 }

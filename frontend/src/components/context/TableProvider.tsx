@@ -41,6 +41,10 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     BalanceQuery | undefined
   >(undefined);
 
+  const [currentCurrency, setCurrentCurrency] = React.useState<
+    string | undefined
+  >(currencyWithAddresses?.[0]?.currency ?? undefined);
+
   React.useEffect(() => {
     if (serverIsOnline) {
       simpleGetToServer('/get_available_currencies_with_addresses')
@@ -161,10 +165,13 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     isError,
     currencyWithAddresses,
     balance,
+    currentCurrency,
 
     addAddress,
     deleteCurrency,
     checkBalance,
+    setCurrentCurrency,
+    deleteAddress,
   };
 
   return (

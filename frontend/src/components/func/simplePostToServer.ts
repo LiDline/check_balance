@@ -7,5 +7,5 @@ export default async function simplePostToServer(
 ) {
   const response = await axios.post(`${INIT_URL}${endUrl}`, data);
 
-  return response;
+  return response.data;
 }
