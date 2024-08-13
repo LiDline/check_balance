@@ -152,8 +152,9 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     try {
       const res = await simpleGetToServer(
         '/check_balance_from_addresses',
-        queryString,
+        `data=${queryString}`,
       );
+      console.log(res);
 
       setBalance(res);
     } catch (error) {

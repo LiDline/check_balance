@@ -3,12 +3,7 @@ import ButtonsForTable from './ButtonsForTable';
 import { LoadingSymbol } from './Loading';
 
 export default function TableCurrencies() {
-  const {
-    currencyWithAddresses,
-    currentCurrency,
-    deleteCurrency,
-    setCurrentCurrency,
-  } = useTableContext();
+  const { currencyWithAddresses } = useTableContext();
 
   return (
     <div className="mt-10 flex justify-center p-6">

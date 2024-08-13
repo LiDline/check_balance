@@ -7,7 +7,7 @@ export default function SelectCurrencies() {
 
   return (
     <ul className="menu menu-vertical rounded-box bg-white lg:menu-horizontal ">
-      {currencyWithAddresses?.map((val, id) => {
+      {currencyWithAddresses?.map((val) => {
         return (
           <li key={val.currency}>
             <button

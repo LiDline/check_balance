@@ -31,7 +31,7 @@ export default function AddCurrencies() {
       style={{ maxWidth: '200px' }}
       ref={catMenu}
     >
-      <button className="btn btn-square btn-outline" onClick={toggleDropdown}>
+      <button className="btn btn-square btn-success" onClick={toggleDropdown}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
