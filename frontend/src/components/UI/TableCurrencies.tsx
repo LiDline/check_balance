@@ -1,8 +1,14 @@
 import { useTableContext } from '../context/useTableContext';
+import ButtonsForTable from './ButtonsForTable';
 import { LoadingSymbol } from './Loading';
 
 export default function TableCurrencies() {
-  const { currencyWithAddresses } = useTableContext();
+  const {
+    currencyWithAddresses,
+    currentCurrency,
+    deleteCurrency,
+    setCurrentCurrency,
+  } = useTableContext();
 
   return (
     <div className="mt-10 flex justify-center p-6">
@@ -12,7 +18,11 @@ export default function TableCurrencies() {
       >
         {!!currencyWithAddresses ? (
           <div className="card-body">
-            {'sdgfdbfdb'}
+            {currencyWithAddresses?.length ? (
+              <ButtonsForTable />
+            ) : (
+              <div>Нет выбранных валют</div>
+            )}
 
             <div className={`card-actions justify-center`}>{'asfsdfdf'}</div>
           </div>

@@ -42,7 +42,7 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
   >(undefined);
 
   const [currentCurrency, setCurrentCurrency] = React.useState<
-    string | undefined
+    CryptoKeys | undefined
   >(currencyWithAddresses?.[0]?.currency ?? undefined);
 
   React.useEffect(() => {

@@ -3,7 +3,12 @@ import { useTableContext } from '../context/useTableContext';
 import React from 'react';
 
 export default function AddCurrencies() {
-  const { currencyWithAddresses, setCurrencyWithAddresses } = useTableContext();
+  const {
+    currencyWithAddresses,
+    currentCurrency,
+    setCurrencyWithAddresses,
+    setCurrentCurrency,
+  } = useTableContext();
   const [isOpen, setIsOpen] = React.useState(false);
 
   const catMenu = React.useRef(null);
@@ -62,6 +67,11 @@ export default function AddCurrencies() {
                 }
                 onClick={() => {
                   setCurrencyWithAddresses((prev) => {
+                    if (!prev?.length) {
+                      setCurrentCurrency(c);
+                      return [{ currency: c, addresses: [] }];
+                    }
+
                     const isSelected = !!currencyWithAddresses?.filter(
                       (s) => s.currency === c,
                     ).length;
@@ -76,10 +86,6 @@ export default function AddCurrencies() {
 
                     if (isSelected && !dontHaveAddresses) {
                       return prev?.filter((p) => p.currency != c);
-                    }
-
-                    if (!prev) {
-                      return [{ currency: c, addresses: [] }];
                     }
 
                     return [...prev, { currency: c, addresses: [] }];
