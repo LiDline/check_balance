@@ -12,15 +12,16 @@ import { AddAddressSchema } from './validation/addAddressSchema';
 import { AddAddress } from './interfaces/interfaces.addAddress';
 import addAddress from './services/addAddress';
 import getAvailableCurrencies from './services/getAvailableCurrencies';
+import { SERVER_ENDPOINT } from 'shared';
 
 export default function router() {
   const router: Router = new Router();
 
-  router.get(`/healthcheck`, async (ctx) => {
+  router.get(SERVER_ENDPOINT.healthcheck, async (ctx) => {
     ctx.body = 'OK';
   });
 
-  router.get(`/get_available_currencies`, async (ctx) => {
+  router.get(SERVER_ENDPOINT.getAvailableCurrencies, async (ctx) => {
     const res = await getAvailableCurrencies();
 
     const response = checkSchema(BalanceQuerySchema, res, ctx);
@@ -28,7 +29,7 @@ export default function router() {
     ctx.body = response;
   });
 
-  router.post(`/add_addresses`, async (ctx) => {
+  router.post(SERVER_ENDPOINT.addAddresses, async (ctx) => {
     const postData: AddAddress = checkSchema(
       AddAddressSchema,
       ctx.request.body,
@@ -42,7 +43,7 @@ export default function router() {
     ctx.body = response;
   });
 
-  router.get(`/check_balance_from_addresses`, async (ctx) => {
+  router.get(SERVER_ENDPOINT.checkBalance, async (ctx) => {
     const decodedString = decodeURIComponent(ctx.query.data as string);
     const data = JSON.parse(decodedString);
 
