@@ -8,7 +8,7 @@
 - просматривать балансы;
 - редактировать список доступных Вам валют;
 
-Frontend: NextJS, Backend: KoaJS
+Frontend: NextJS с daisyUI, Backend: KoaJS с zod, sequelize.
 
 ## Запуск
 
@@ -29,14 +29,13 @@ pnpm dev
 |─frontend
 |   └─ Frontend компоненты проекта
 |
-└─backend
-   └─ src
-        ├─ database
-        |   └─ методы для ORM sequelize
-        ├─ interfaces
-        |   └─ типы и интерфейсы
-        ├─ services
-        |   └─ методы эндпоинтов
-        └─ validation
-            └─ Zod-схемы
+|─backend
+|   └─ src
+|        ├─ database
+|        |   └─ методы для ORM sequelize
+|        └─ services
+|            └─ методы эндпоинтов
+|
+|shared
+|   └─ Zod-схемы, типы и интерфейсы
 ```
