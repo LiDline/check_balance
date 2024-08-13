@@ -5,7 +5,7 @@ import type {
   CoinGeckoResponse,
 } from '../interfaces/interfaces.balanceQuerySchema';
 
-import { ERRORS, URL_FOR_CONVERT } from '../CONST';
+import { ERRORS, URL_FOR_CONVERT } from 'shared';
 import getBitcoinBalance from './checkBalance/getBitcoinBalance';
 import { simpleGetQuery } from './checkBalance/simpleGetQuery';
 import urlForCheckBalance from './checkBalance/urlForCheckBalance';

@@ -6,7 +6,7 @@ import type {
 } from '../../interfaces/interfaces.balanceQuerySchema';
 
 import { simpleGetQuery } from './simpleGetQuery';
-import { ERRORS } from '../../CONST';
+import { ERRORS } from 'shared';
 
 export default async function getBitcoinBalance(
   urls: UrlForCheckBalance[],

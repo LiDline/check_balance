@@ -4,7 +4,7 @@ import type {
   UrlForCheckBalance,
 } from '../../interfaces/interfaces.balanceQuerySchema';
 
-import { ERRORS } from '../../CONST';
+import { ERRORS } from 'shared';
 import { BalanceFromBlockcypherResponseSchema } from '../../validation/balanceQuerySchema';
 import { simpleGetQuery } from './simpleGetQuery';
 

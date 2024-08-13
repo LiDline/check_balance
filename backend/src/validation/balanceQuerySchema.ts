@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { CRYPTOCURRENCIES } from '../CONST';
+import { CRYPTOCURRENCIES } from 'shared';
 
 export const BalanceQuerySchema = z
   .array(

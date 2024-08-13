@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { CRYPTOCURRENCIES } from '../CONST';
+import { CRYPTOCURRENCIES } from 'shared';
 
 export const GroupedCurrenciesResponseSchema = z.array(
   z.object({

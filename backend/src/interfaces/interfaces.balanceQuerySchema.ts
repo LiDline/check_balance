@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { CRYPTOCURRENCIES_OBJECT } from '../CONST';
+import { CRYPTOCURRENCIES_OBJECT } from 'shared';
 import {
   BalanceFromBlockcypherResponseSchema,
   BalanceQuerySchema,
