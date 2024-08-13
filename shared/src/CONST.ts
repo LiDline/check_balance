@@ -28,9 +28,11 @@ export const ERRORS = {
 
 export const SERVER_ENDPOINT = {
   healthcheck: '/healthcheck',
-  getAvailableCurrencies: '/get_available_currencies',
+  getAvailableCurrencies: '/get_available_currencies_with_addresses',
   addAddresses: '/add_addresses',
   checkBalance: '/check_balance_from_addresses',
   deleteAddress: '/delete_address',
   deleteCurrency: '/delete_currency',
 };
+
+export const INIT_URL = `http://localhost:${process.env.SERVER_PORT ?? '5000'}`;
