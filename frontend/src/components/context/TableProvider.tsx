@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import type {
   ChildrenProps,
@@ -22,7 +21,10 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
   }, []);
 
   //---------------------Currency-------------------
-
+  React.useEffect(() => {
+    if (serverIsOnline) {
+    }
+  }, [serverIsOnline]);
   //---------------------------------------------
 
   const contextValue: TableContextProps = {

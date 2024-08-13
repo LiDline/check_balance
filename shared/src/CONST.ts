@@ -31,4 +31,5 @@ export const SERVER_ENDPOINT = {
   getAvailableCurrencies: '/get_available_currencies',
   addAddresses: '/add_addresses',
   checkBalance: '/check_balance_from_addresses',
+  deleteAddress: '/delete_address',
 };
