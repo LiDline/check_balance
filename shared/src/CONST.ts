@@ -1,7 +1,4 @@
-import {
-  CryptoKeys,
-  CryptoValues,
-} from './interfaces/interfaces.balanceQuerySchema';
+import { CryptoKeys, CryptoValues } from './interfaces';
 
 export const CRYPTOCURRENCIES_OBJECT = {
   bitcoin: 'BTC',

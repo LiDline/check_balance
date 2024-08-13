@@ -10,7 +10,7 @@
     "baseUrl": ".",
     "paths": {
       "../*": ["src/*"],
-      "shared/*": ["node_modules/shared/dist/*"]
+      "shared": ["node_modules/shared/dist/*"]
     },
     "outDir": "./dist",
     "rootDir": "./src"
