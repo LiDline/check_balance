@@ -9,11 +9,9 @@ import checkServerStatus from '../func/checkServerStatus';
 import {
   AddAddress,
   BalanceQuery,
-  CheckBalanceResponse,
+  CheckBalance,
   CryptoCurrencies,
-  CRYPTOCURRENCIES,
   CryptoKeys,
-  EndpointValues,
   SERVER_ENDPOINT,
 } from 'shared';
 import simpleGetToServer from '../func/simpleGetToServer';
@@ -143,9 +141,9 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
 
   //--------------------Check balance-------------------
 
-  const [balance, setBalance] = React.useState<
-    CheckBalanceResponse | undefined
-  >(undefined);
+  const [balance, setBalance] = React.useState<CheckBalance | undefined>(
+    undefined,
+  );
 
   const checkBalance = async (query: CryptoCurrencies) => {
     const queryString = encodeURIComponent(JSON.stringify(query));

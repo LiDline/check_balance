@@ -4,7 +4,7 @@ import { LoadingSymbol } from './Loading';
 import Table from './Table';
 
 export default function TableCurrencies() {
-  const { currencyWithAddresses } = useTableContext();
+  const { currencyWithAddresses, currentDataForTable } = useTableContext();
 
   return (
     <div className="mt-10 flex justify-center p-6">
@@ -21,7 +21,11 @@ export default function TableCurrencies() {
             )}
 
             <div className={`card-actions justify-center`}>
-              <Table />
+              {!!currentDataForTable?.addresses.length ? (
+                <Table />
+              ) : (
+                <div>Нет адресов</div>
+              )}
             </div>
           </div>
         ) : (
