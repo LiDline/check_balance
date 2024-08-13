@@ -10,6 +10,7 @@ import {
   AddAddress,
   BalanceQuery,
   CheckBalanceResponse,
+  CryptoCurrencies,
   CRYPTOCURRENCIES,
   CryptoKeys,
   EndpointValues,
@@ -146,7 +147,7 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     CheckBalanceResponse | undefined
   >(undefined);
 
-  const checkBalance = async (query: BalanceQuery) => {
+  const checkBalance = async (query: CryptoCurrencies) => {
     const queryString = encodeURIComponent(JSON.stringify(query));
 
     try {
@@ -154,13 +155,19 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
         '/check_balance_from_addresses',
         `data=${queryString}`,
       );
-      console.log(res);
 
       setBalance(res);
     } catch (error) {
       setIsError(true);
     }
   };
+
+  const currentDataForTable =
+    currencyWithAddresses?.[
+      currencyWithAddresses.findIndex(
+        (item) => item.currency === currentCurrency,
+      )
+    ];
 
   //---------------------------------------------------
 
@@ -170,6 +177,7 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     currencyWithAddresses,
     balance,
     currentCurrency,
+    currentDataForTable,
 
     addAddress,
     deleteCurrency,

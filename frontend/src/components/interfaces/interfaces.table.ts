@@ -4,6 +4,7 @@ import {
   AddAddress,
   BalanceQuery,
   CheckBalanceResponse,
+  CryptoCurrencies,
   CryptoKeys,
 } from 'shared';
 
@@ -17,10 +18,11 @@ export interface TableContextProps {
   currencyWithAddresses: BalanceQuery | undefined;
   balance: CheckBalanceResponse | undefined;
   currentCurrency: CryptoKeys | undefined;
+  currentDataForTable: CryptoCurrencies | undefined;
 
   addAddress: (data: AddAddress) => Promise<void>;
   deleteCurrency: (currency: CryptoKeys) => Promise<void>;
-  checkBalance: (query: BalanceQuery) => Promise<void>;
+  checkBalance: (query: CryptoCurrencies) => Promise<void>;
   setCurrentCurrency: React.Dispatch<
     React.SetStateAction<CryptoKeys | undefined>
   >;

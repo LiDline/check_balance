@@ -4,25 +4,19 @@ export default function ButtonsForTable() {
   const {
     currencyWithAddresses,
     currentCurrency,
+    currentDataForTable,
     deleteCurrency,
     setCurrentCurrency,
     checkBalance,
   } = useTableContext();
 
-  const currentData =
-    currencyWithAddresses?.[
-      currencyWithAddresses.findIndex(
-        (item) => item.currency === currentCurrency,
-      )
-    ];
-
   return (
     <div className="flex justify-between">
       <button
         className="btn"
-        disabled={!currentData?.addresses?.length}
+        disabled={!currentDataForTable?.addresses?.length}
         onClick={async () => {
-          await checkBalance([currentData!]);
+          await checkBalance(currentDataForTable!);
         }}
       >
         Проверить баланс

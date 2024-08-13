@@ -5,15 +5,17 @@ import {
   BalanceFromBlockcypherResponseSchema,
   BalanceQuerySchema,
   BalanceSchema,
-  CheckBalanceResponseSchema,
   CheckBalanceSchema,
   CoinGeckoResponseSchema,
+  CryptoCurrenciesSchema,
   TetherTrc20BalanceResponseSchema,
 } from '../validation/balanceQuerySchema';
 
 export type CryptoKeys = keyof typeof CRYPTOCURRENCIES_OBJECT;
 
 export type CryptoValues = (typeof CRYPTOCURRENCIES_OBJECT)[CryptoKeys];
+
+export type CryptoCurrencies = z.infer<typeof CryptoCurrenciesSchema>;
 
 export type BalanceQuery = z.infer<typeof BalanceQuerySchema>;
 
@@ -35,7 +37,6 @@ export type CheckBalance = z.infer<typeof CheckBalanceSchema>;
 export type TetherTrc20BalanceResponse = z.infer<
   typeof TetherTrc20BalanceResponseSchema
 >;
-export type CheckBalanceResponse = z.infer<typeof CheckBalanceResponseSchema>;
 
 export type EndpointKeys = keyof typeof SERVER_ENDPOINT;
 

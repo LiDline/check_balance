@@ -1,6 +1,7 @@
 import { useTableContext } from '../context/useTableContext';
 import ButtonsForTable from './ButtonsForTable';
 import { LoadingSymbol } from './Loading';
+import Table from './Table';
 
 export default function TableCurrencies() {
   const { currencyWithAddresses } = useTableContext();
@@ -19,7 +20,9 @@ export default function TableCurrencies() {
               <div>Нет выбранных валют</div>
             )}
 
-            <div className={`card-actions justify-center`}>{'asfsdfdf'}</div>
+            <div className={`card-actions justify-center`}>
+              <Table />
+            </div>
           </div>
         ) : (
           <div>

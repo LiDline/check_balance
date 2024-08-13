@@ -5,9 +5,10 @@ import getAvailableCurrencies from './services/getAvailableCurrencies';
 import {
   AddAddress,
   AddAddressSchema,
-  BalanceQuery,
   BalanceQuerySchema,
-  CheckBalanceResponseSchema,
+  CheckBalanceSchema,
+  CryptoCurrencies,
+  CryptoCurrenciesSchema,
   CryptoKeys,
   DeleteAddressSchema,
   DeleteCurrencySchema,
@@ -50,11 +51,15 @@ export default function router() {
     const decodedString = decodeURIComponent(ctx.query.data as string);
     const data = JSON.parse(decodedString);
 
-    const query: BalanceQuery = checkSchema(BalanceQuerySchema, data, ctx);
+    const query: CryptoCurrencies = checkSchema(
+      CryptoCurrenciesSchema,
+      data,
+      ctx,
+    );
 
     const res = await checkBalance(query);
 
-    const response = checkSchema(CheckBalanceResponseSchema, res, ctx);
+    const response = checkSchema(CheckBalanceSchema, res, ctx);
 
     ctx.body = response;
   });

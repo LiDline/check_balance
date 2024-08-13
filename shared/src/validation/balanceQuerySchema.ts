@@ -2,14 +2,12 @@ import { z } from 'zod';
 
 import { CRYPTOCURRENCIES } from '../CONST';
 
-export const BalanceQuerySchema = z
-  .array(
-    z.object({
-      currency: z.enum(CRYPTOCURRENCIES),
-      addresses: z.array(z.string().min(1)),
-    }),
-  )
-  .default([]);
+export const CryptoCurrenciesSchema = z.object({
+  currency: z.enum(CRYPTOCURRENCIES),
+  addresses: z.array(z.string().min(1)),
+});
+
+export const BalanceQuerySchema = z.array(CryptoCurrenciesSchema).default([]);
 
 const UsdSchema = z.object({ usd: z.number() });
 
@@ -80,8 +78,3 @@ export const CheckBalanceSchema = z.object({
   currency: z.enum(CRYPTOCURRENCIES),
   array: z.array(BalanceSchema),
 });
-
-export const CheckBalanceResponseSchema = z
-  .array(CheckBalanceSchema)
-  .default([])
-  .or(z.object({ error: z.string() }));
