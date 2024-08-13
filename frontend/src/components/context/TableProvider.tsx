@@ -48,7 +48,10 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
   React.useEffect(() => {
     if (serverIsOnline) {
       simpleGetToServer('/get_available_currencies_with_addresses')
-        .then(setCurrencyWithAddresses)
+        .then((data) => {
+          setCurrencyWithAddresses(data);
+          setCurrentCurrency(data?.[0]?.currency ?? undefined);
+        })
         .catch(setIsError);
     }
   }, [serverIsOnline]);
