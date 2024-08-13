@@ -1,5 +1,5 @@
+import { AddAddress } from 'shared';
 import { CurrencyAddress } from '../database/db';
-import type { AddAddress } from '../interfaces/interfaces.addAddress';
 
 export default async function addAddress(
   postData: AddAddress,

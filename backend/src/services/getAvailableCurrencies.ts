@@ -1,5 +1,5 @@
+import type { GroupedCurrenciesResponse } from 'shared';
 import { CurrencyAddress, sequelize } from '../database/db';
-import { GroupedCurrenciesResponse } from '../interfaces/interfaces.getAvailableCurrencies';
 
 export default async function getAvailableCurrencies() {
   const postgree = !!process.env.URL_POSTGREESQL;
@@ -38,12 +38,10 @@ export default async function getAvailableCurrencies() {
     raw: true,
   })) as unknown as GroupedCurrenciesResponse;
 
-  console.log(groupedCurrencies);
-
   const result = groupedCurrencies.map((item) => ({
     currency: item.currency,
     addresses: item.addresses ? item.addresses.split(',') : [],
   }));
 
-  return groupedCurrencies;
+  return result;
 }

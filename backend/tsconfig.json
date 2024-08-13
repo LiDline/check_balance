@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "NodeNext",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "moduleResolution": "nodenext",
     "sourceMap": true,
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "../*": ["src/*"]
+      "../*": ["src/*"],
+      "shared/*": ["node_modules/shared/dist/*"]
     },
     "outDir": "./dist",
     "rootDir": "./src"

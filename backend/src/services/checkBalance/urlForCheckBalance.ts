@@ -1,7 +1,4 @@
-import type {
-  CryptoKeys,
-  UrlForCheckBalance,
-} from '../../interfaces/interfaces.balanceQuerySchema';
+import type { CryptoKeys, UrlForCheckBalance } from 'shared';
 
 export default function urlForCheckBalance(
   currency: CryptoKeys,

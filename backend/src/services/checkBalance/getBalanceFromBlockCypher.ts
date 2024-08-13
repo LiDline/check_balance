@@ -2,10 +2,10 @@ import type {
   Balance,
   BalanceFromBlockcypherResponse,
   UrlForCheckBalance,
-} from '../../interfaces/interfaces.balanceQuerySchema';
+} from 'shared';
 
-import { ERRORS } from 'shared';
-import { BalanceFromBlockcypherResponseSchema } from '../../validation/balanceQuerySchema';
+import { BalanceFromBlockcypherResponseSchema, ERRORS } from 'shared';
+
 import { simpleGetQuery } from './simpleGetQuery';
 
 export default async function getBalanceFromBlockCypher(

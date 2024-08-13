@@ -1,12 +1,11 @@
-import type {
+import {
   Balance,
+  ERRORS,
   TetherTrc20BalanceResponse,
+  TetherTrc20BalanceResponseSchema,
   UrlForCheckBalance,
-} from '../../interfaces/interfaces.balanceQuerySchema';
+} from 'shared';
 
-import { ERRORS } from 'shared';
-
-import { TetherTrc20BalanceResponseSchema } from '../../validation/balanceQuerySchema';
 import { simpleGetQuery } from './simpleGetQuery';
 
 export default async function getTetherTrc20Balance(

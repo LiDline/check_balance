@@ -3,13 +3,13 @@ import type {
   CheckBalance,
   CheckBalanceResponse,
   CoinGeckoResponse,
-} from '../interfaces/interfaces.balanceQuerySchema';
+} from 'shared';
 
-import { ERRORS, URL_FOR_CONVERT } from 'shared';
+import { ERRORS, URL_FOR_CONVERT, CoinGeckoResponseSchema } from 'shared';
+
 import getBitcoinBalance from './checkBalance/getBitcoinBalance';
 import { simpleGetQuery } from './checkBalance/simpleGetQuery';
 import urlForCheckBalance from './checkBalance/urlForCheckBalance';
-import { CoinGeckoResponseSchema } from '../validation/balanceQuerySchema';
 import getTetherTrc20Balance from './checkBalance/getTetherTrc20Balance';
 import getBalanceFromBlockCypher from './checkBalance/getBalanceFromBlockCypher';
 

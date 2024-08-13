@@ -1,12 +1,7 @@
 import { z } from 'zod';
 
-import type {
-  Balance,
-  UrlForCheckBalance,
-} from '../../interfaces/interfaces.balanceQuerySchema';
-
 import { simpleGetQuery } from './simpleGetQuery';
-import { ERRORS } from 'shared';
+import { Balance, ERRORS, UrlForCheckBalance } from 'shared';
 
 export default async function getBitcoinBalance(
   urls: UrlForCheckBalance[],

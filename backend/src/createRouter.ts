@@ -1,18 +1,17 @@
 import Router from 'koa-router';
 
-import type { BalanceQuery } from './interfaces/interfaces.balanceQuerySchema';
-
-import checkSchema from './validation/checkSchema';
-import {
-  BalanceQuerySchema,
-  CheckBalanceResponseSchema,
-} from './validation/balanceQuerySchema';
-import checkBalance from './services/checkBalance';
-import { AddAddressSchema } from './validation/addAddressSchema';
-import { AddAddress } from './interfaces/interfaces.addAddress';
 import addAddress from './services/addAddress';
 import getAvailableCurrencies from './services/getAvailableCurrencies';
-import { SERVER_ENDPOINT } from 'shared';
+import {
+  AddAddress,
+  AddAddressSchema,
+  BalanceQuery,
+  BalanceQuerySchema,
+  CheckBalanceResponseSchema,
+  SERVER_ENDPOINT,
+} from 'shared';
+import checkSchema from './utils/checkSchema';
+import checkBalance from './services/checkBalance';
 
 export default function router() {
   const router: Router = new Router();
