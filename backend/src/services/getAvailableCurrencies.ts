@@ -1,7 +1,7 @@
-import type { GroupedCurrenciesResponse } from 'shared';
+import type { BalanceQuery, GroupedCurrenciesResponse } from 'shared';
 import { CurrencyAddress, sequelize } from '../database/db';
 
-export default async function getAvailableCurrencies() {
+export default async function getAvailableCurrencies(): Promise<BalanceQuery> {
   const postgree = !!process.env.URL_POSTGREESQL;
 
   let groupedCurrencies: GroupedCurrenciesResponse;
@@ -28,15 +28,6 @@ export default async function getAvailableCurrencies() {
       raw: true,
     })) as unknown as GroupedCurrenciesResponse;
   }
-
-  (await CurrencyAddress.findAll({
-    attributes: [
-      'currency',
-      [sequelize.fn('STRING_AGG', sequelize.col('address'), ','), 'addresses'],
-    ],
-    group: ['currency'],
-    raw: true,
-  })) as unknown as GroupedCurrenciesResponse;
 
   const result = groupedCurrencies.map((item) => ({
     currency: item.currency,
