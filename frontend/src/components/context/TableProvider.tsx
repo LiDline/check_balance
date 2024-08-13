@@ -175,6 +175,7 @@ export const TableProvider: React.FC<ChildrenProps> = ({ children }) => {
     checkBalance,
     setCurrentCurrency,
     deleteAddress,
+    setCurrencyWithAddresses,
   };
 
   return (
