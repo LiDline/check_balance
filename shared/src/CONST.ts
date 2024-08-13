@@ -1,4 +1,4 @@
-import { CryptoKeys, CryptoValues } from './interfaces';
+import { CryptoKeys, CryptoValues, EndpointKeys } from './interfaces';
 
 export const CRYPTOCURRENCIES_OBJECT = {
   bitcoin: 'BTC',
@@ -33,6 +33,8 @@ export const SERVER_ENDPOINT = {
   checkBalance: '/check_balance_from_addresses',
   deleteAddress: '/delete_address',
   deleteCurrency: '/delete_currency',
-};
+} as const;
+
+export const ENDPOINT_KEYS = Object.keys(SERVER_ENDPOINT) as [EndpointKeys];
 
 export const INIT_URL = `http://localhost:${process.env.SERVER_PORT ?? '5000'}`;

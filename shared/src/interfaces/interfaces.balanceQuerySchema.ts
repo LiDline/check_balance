@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { CRYPTOCURRENCIES_OBJECT } from '../CONST';
+import { CRYPTOCURRENCIES_OBJECT, SERVER_ENDPOINT } from '../CONST';
 import {
   BalanceFromBlockcypherResponseSchema,
   BalanceQuerySchema,
@@ -36,3 +36,7 @@ export type TetherTrc20BalanceResponse = z.infer<
   typeof TetherTrc20BalanceResponseSchema
 >;
 export type CheckBalanceResponse = z.infer<typeof CheckBalanceResponseSchema>;
+
+export type EndpointKeys = keyof typeof SERVER_ENDPOINT;
+
+export type EndpointValues = (typeof SERVER_ENDPOINT)[EndpointKeys];
