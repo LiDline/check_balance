@@ -8,12 +8,14 @@ import {
   BalanceQuery,
   BalanceQuerySchema,
   CheckBalanceResponseSchema,
+  CryptoKeys,
   DeleteAddressSchema,
+  DeleteCurrencySchema,
   SERVER_ENDPOINT,
 } from 'shared';
 import checkSchema from './utils/checkSchema';
 import checkBalance from './services/checkBalance';
-import deleteAddress from './services/deleteAddress';
+import simpleDelete from './services/simpleDelete';
 
 export default function router() {
   const router: Router = new Router();
@@ -57,12 +59,26 @@ export default function router() {
     ctx.body = response;
   });
 
-  router.delete(`${SERVER_ENDPOINT.deleteAddress}/:id`, async (ctx) => {
-    console.log(ctx.params);
+  router.delete(`${SERVER_ENDPOINT.deleteAddress}/:address`, async (ctx) => {
+    const address: string = checkSchema(
+      DeleteAddressSchema,
+      ctx.params.address,
+      ctx,
+    );
 
-    const id: string = checkSchema(DeleteAddressSchema, ctx.params.id, ctx);
+    const status = await simpleDelete({ address });
 
-    const status = await deleteAddress(id);
+    ctx.status = status;
+  });
+
+  router.delete(`${SERVER_ENDPOINT.deleteCurrency}/:currency`, async (ctx) => {
+    const currency: CryptoKeys = checkSchema(
+      DeleteCurrencySchema,
+      ctx.params.currency,
+      ctx,
+    );
+
+    const status = await simpleDelete({ currency });
 
     ctx.status = status;
   });
