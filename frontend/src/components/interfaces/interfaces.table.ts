@@ -3,7 +3,7 @@ import React from 'react';
 import {
   AddAddress,
   BalanceQuery,
-  CheckBalanceResponse,
+  CheckBalance,
   CryptoCurrencies,
   CryptoKeys,
 } from 'shared';
@@ -16,7 +16,7 @@ export interface TableContextProps {
   serverIsOnline: boolean;
   isError: boolean;
   currencyWithAddresses: BalanceQuery | undefined;
-  balance: CheckBalanceResponse | undefined;
+  balance: CheckBalance | undefined;
   currentCurrency: CryptoKeys | undefined;
   currentDataForTable: CryptoCurrencies | undefined;
 

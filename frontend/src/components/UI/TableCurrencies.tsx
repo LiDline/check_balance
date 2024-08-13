@@ -1,4 +1,5 @@
 import { useTableContext } from '../context/useTableContext';
+import AddAddress from './AddAddress';
 import ButtonsForTable from './ButtonsForTable';
 import { LoadingSymbol } from './Loading';
 import Table from './Table';
@@ -26,6 +27,10 @@ export default function TableCurrencies() {
               ) : (
                 <div>Нет адресов</div>
               )}
+            </div>
+
+            <div className="card-actions justify-center p-10">
+              <AddAddress />
             </div>
           </div>
         ) : (

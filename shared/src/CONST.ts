@@ -38,3 +38,5 @@ export const SERVER_ENDPOINT = {
 export const ENDPOINT_KEYS = Object.keys(SERVER_ENDPOINT) as [EndpointKeys];
 
 export const INIT_URL = `http://localhost:${process.env.SERVER_PORT ?? '5000'}`;
+
+export const TABLE_HEADERS = ['Адрес', 'Баланс', 'Баланс в $', 'Действия'];
