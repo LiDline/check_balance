@@ -4,7 +4,9 @@ import { DataTypes, Sequelize } from 'sequelize';
 dotenv.config();
 
 export const sequelize = new Sequelize(
-  process.env.URL_POSTGREESQL ?? 'sqlite::memory:',
+  process.env.URL_POSTGREESQL?.length
+    ? process.env.URL_POSTGREESQL
+    : 'sqlite::memory:',
   {
     logging: process.env.NODE_ENV === 'development' ? true : false,
   },
