@@ -12,21 +12,21 @@ Frontend: NextJS с daisyUI, Backend: KoaJS с zod, sequelize.
 
 ## Запуск
 
-### dev
-
 ```bash
 cp .env.example .env # не обязательно
 npm install -g pnpm@9.3.0
 pnpm i
+```
+
+### dev
+
+```bash
 pnpm dev
 ```
 
 ### prod
 
 ```bash
-cp .env.example .env # не обязательно
-npm install -g pnpm@9.3.0
-pnpm i
 pnpm build
 pnpm start
 ```

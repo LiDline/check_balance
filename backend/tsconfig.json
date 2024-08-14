@@ -9,8 +9,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "../*": ["src/*"],
-      "shared": ["node_modules/shared/dist/*"]
+      "../*": ["src/*"]
     },
     "outDir": "./dist",
     "rootDir": "./src"
