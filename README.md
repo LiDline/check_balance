@@ -21,6 +21,16 @@ pnpm i —frozen-lockfile
 pnpm dev
 ```
 
+### prod
+
+```bash
+cp .env.example .env # не обязательно
+npm install -g pnpm@9.3.0
+pnpm i —frozen-lockfile
+pnpm build
+pnpm start
+```
+
 #### http://localhost:3000/
 
 ## Дерево проекта
