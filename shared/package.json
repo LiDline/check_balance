@@ -4,7 +4,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "start:dev": "tsc -w --incremental"
+    "start:dev": "tsc -w --incremental",
+    "clean": "rm -rf dist && rm -rf node_modules"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

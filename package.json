@@ -4,15 +4,13 @@
   "private": true,
   "packageManager": "pnpm@9.3.0",
   "scripts": {
+    "clean": "pnpm --stream -r run clean && rm -rf node_modules",
     "dev:backend": "pnpm --filter ./shared build && dotenv -- pnpm --filter ./backend start:dev",
     "dev": "pnpm --filter ./shared build && dotenv -- pnpm --parallel --stream -r run start:dev",
     "build:backend": "pnpm --filter ./shared build && pnpm --filter ./backend build",
     "build": "pnpm --stream -r run build",
     "start": "dotenv -- pnpm --stream -r run start",
     "start:backend": "pnpm --filter ./shared build && dotenv -- pnpm --filter backend start"
-  },
-  "dependencies": {
-    "concurrently": "^7.0.0"
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.2"
