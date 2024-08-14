@@ -11,14 +11,18 @@ export default function AddCurrencies() {
   } = useTableContext();
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const catMenu = React.useRef(null);
+  const catMenu = React.useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
   };
 
   const closeOpenMenus = (e: MouseEvent) => {
-    if (isOpen && !catMenu.current?.contains(e.target)) {
+    if (
+      isOpen &&
+      catMenu.current &&
+      !catMenu.current.contains(e.target as Node)
+    ) {
       setIsOpen(false);
     }
   };

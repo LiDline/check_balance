@@ -8,6 +8,7 @@
     "dev": "dotenv -- pnpm --parallel --stream -r run start:dev",
     "build:backend": "pnpm --filter ./backend build",
     "build": "pnpm --stream -r run build",
+    "start": "dotenv -- pnpm --stream -r run start",
     "start:backend": "dotenv -- pnpm --filter backend start"
   },
   "dependencies": {
