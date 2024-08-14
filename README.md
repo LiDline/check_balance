@@ -17,7 +17,7 @@ Frontend: NextJS с daisyUI, Backend: KoaJS с zod, sequelize.
 ```bash
 cp .env.example .env # не обязательно
 npm install -g pnpm@9.3.0
-pnpm i —frozen-lockfile
+pnpm i
 pnpm dev
 ```
 
@@ -26,7 +26,7 @@ pnpm dev
 ```bash
 cp .env.example .env # не обязательно
 npm install -g pnpm@9.3.0
-pnpm i —frozen-lockfile
+pnpm i
 pnpm build
 pnpm start
 ```
