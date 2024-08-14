@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start:dev": "npx nodemon server.js --ext ts",
-    "build": "rm -rf dist tsc",
+    "build": "rm -rf dist && tsc",
     "start": "node dist/server.js",
     "clean": "rm -rf dist && rm -rf node_modules"
   },
