@@ -30,7 +30,7 @@ export default function TableCurrencies() {
             </div>
 
             <div className="card-actions justify-center p-10">
-              <AddAddress />
+              {!!currencyWithAddresses?.length && <AddAddress />}
             </div>
           </div>
         ) : (
