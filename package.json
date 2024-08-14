@@ -4,11 +4,11 @@
   "private": true,
   "packageManager": "pnpm@9.3.0",
   "scripts": {
-    "dev:backend": "dotenv -- pnpm --filter ./backend dev",
-    "dev": "concurrently \"dotenv -- pnpm --filter frontend dev\" \"dotenv -- pnpm --filter ./backend dev\"",
+    "dev:backend": "dotenv -- pnpm --filter ./backend start:dev",
+    "dev": "dotenv -- pnpm --parallel --stream -r run start:dev",
     "build:backend": "pnpm --filter ./backend build",
-    "build": "pnpm --filter frontend build && pnpm --filter backend build && pnpm --filter shared build ",
-    "start:backend": "pnpm --filter backend start"
+    "build": "pnpm --stream -r run build",
+    "start:backend": "dotenv -- pnpm --filter backend start"
   },
   "dependencies": {
     "concurrently": "^7.0.0"

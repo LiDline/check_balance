@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development npx nodemon server.js --ext ts",
-    "build": "tsc",
+    "start:dev": "npx nodemon server.js --ext ts",
+    "build": "rm -rf dist && tsc",
     "start": "node dist/server.js"
   },
   "author": "LiDline",

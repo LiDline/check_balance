@@ -1,11 +1,10 @@
 {
   "name": "shared",
   "version": "1.0.0",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "rm -rf dist && tsc",
+    "start:dev": "tsc -w --incremental"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
